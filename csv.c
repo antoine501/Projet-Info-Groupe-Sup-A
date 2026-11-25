@@ -15,6 +15,7 @@ typedef struct {
     int age;
 } LigneCsv;
 
+//
 FILE *ouvrir_csv(const char *nom_fichier){
     
     FILE *fichier = fopen(nomfichier, "r");
@@ -24,10 +25,39 @@ FILE *ouvrir_csv(const char *nom_fichier){
         fprintf(stderr,"Erreur : impossible d'ouvrir le fichier de données");
         exit(1);
     }
-    if(fgets(entete, sizeof(entete), fichier) == NULL){
-        fprintf(stderr,"Erreur : le fichier de données est vide");
+    if(fgets(entete, sizeof(entete), fichier) == NULL){                  //verifie que le fichier contient au moin un caractère car si la première ligne est vide on a "/n" 
+        fprintf(stderr,"Erreur : le fichier de données est vide");       //permet egalement de sauter la première ligne.
         exit(1);
     }
     return fichier;
 }
+
+int lire_ligne(FILE* fichier, LigneCsv *ligne){
+    char texte[200];
+    int lus;
+
+    do{
+        if (fgets(texte, sizeof(texte), fichier) == NULL){     //verifie si il y'a encore des choses à lire dans le fichier, si la ligne est complètement vide fget(...) == NULL (ie) le reste du fichier est vide 
+            return 0;  
+        }
+    }while (texte[0] == '/n' || texte[0] == '\r'); //tant que la ligne lu est vide (ne contient que \n pour linux ou \r pou widows) on lit la ligne suivante et on verfie que le reste du fichier n'est pas vide 
+
+    ligne->numero++;
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
