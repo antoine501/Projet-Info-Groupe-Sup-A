@@ -68,7 +68,7 @@ tri_rapide(tableau,debut,j); //on fait le tri sur la partie gauche
 tri_rapide(tableau,i,fin);    //on fait le tri sur la partie droite
 }
 
-
+void
 
 
 
