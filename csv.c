@@ -44,6 +44,10 @@ int lire_ligne(FILE* fichier, LigneCsv *ligne){
 
     ligne->numero++;
     
+    lus = sscanf(texte, "%d;%d;%7[^;];%d;%d;%d;%d;%d;%d",
+                 &ligne->annee, &ligne->id_accident, ligne->id_vehicule,
+                 &ligne->place, &ligne->type_usager, &ligne->gravite,
+                 &ligne->genre, &ligne->annee_naissance, &ligne->trajet); //lis dans la variable texte qui contient la ligne qui vient juste d'être lus.
 
     
 
