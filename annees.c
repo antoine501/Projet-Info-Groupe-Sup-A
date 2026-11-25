@@ -12,7 +12,7 @@ int *ids;         // id de l'accident
 int capacite;
 }Annee;
 
-void initialiser(Annee annees[]){
+void initialiser_annees(Annee annees[]){
   for (int i = 0; i < NB_ANNEE;i++){
     for(int j= 0; j< 4 ; g++){
     annees[i].gravite[g]=0;
